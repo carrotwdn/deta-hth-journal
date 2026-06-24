@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>近期访问指南 · 华体会</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fff1e0 0%, #fce4d6 25%, #f8d5c0 55%, #fbc8b5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 1.5rem 3rem;
+            color: #2c2a28;
+            line-height: 1.6;
+        }
+
+        .page-wrapper {
+            max-width: 1120px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* -------- 顶部导航 -------- */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0 0.6rem;
+            border-bottom: 1px solid rgba(180, 120, 85, 0.2);
+            flex-wrap: wrap;
+            gap: 0.8rem 1rem;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            color: #6f4e2e;
+            background: rgba(255, 245, 235, 0.7);
+            padding: 0.2rem 0.8rem;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.8rem 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4f3b2b;
+            font-weight: 450;
+            font-size: 0.95rem;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #b4764a;
+            color: #3d2b1d;
+        }
+
+        /* -------- hero 区域 -------- */
+        .hero {
+            margin: 2.8rem 0 2rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(6px);
+            border-radius: 48px;
+            padding: 3rem 2.2rem;
+            box-shadow: 0 8px 30px rgba(150, 90, 50, 0.08);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #4a3322;
+        }
+
+        .hero h1 small {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #7a5f45;
+            margin-top: 0.6rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-desc {
+            max-width: 680px;
+            margin: 1.6rem auto 0;
+            font-size: 1.08rem;
+            color: #3e3128;
+            text-align: left;
+            background: rgba(255, 247, 240, 0.7);
+            border-radius: 2rem;
+            padding: 1.6rem 2rem;
+        }
+
+        .hero-desc p {
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-desc p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* -------- 卡片区域：三个场景模块 -------- */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin: 1.5rem 0 2.2rem;
+        }
+
+        .scene-card {
+            background: white;
+            border-radius: 36px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 4px 16px rgba(140, 90, 55, 0.06);
+            transition: transform 0.2s, box-shadow 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(110, 70, 40, 0.08);
+        }
+
+        .scene-card h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #593f2b;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.2px;
+        }
+
+        .scene-card p {
+            font-size: 0.97rem;
+            color: #3f332b;
+            margin-bottom: 1.4rem;
+            flex: 1;
+        }
+
+        .scene-card .tag {
+            display: inline-block;
+            background: #f7e6db;
+            border-radius: 60px;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            color: #5a3e2b;
+            font-weight: 500;
+            align-self: flex-start;
+        }
+
+        /* -------- 常见说明 + 链接嵌入 -------- */
+        .faq-block {
+            background: white;
+            border-radius: 40px;
+            padding: 2.2rem 2.5rem;
+            margin: 1rem 0 1.8rem;
+            box-shadow: 0 4px 18px rgba(140, 85, 45, 0.05);
+        }
+
+        .faq-block h2 {
+            font-weight: 470;
+            font-size: 1.6rem;
+            color: #4f3724;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #c6895e;
+            padding-left: 1rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.4rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px dashed #e6d3c4;
+        }
+
+        .faq-item:last-child {
+            border-bottom: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-weight: 510;
+            color: #3b2c1f;
+            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
+        }
+
+        .faq-answer {
+            color: #453a31;
+            font-size: 0.95rem;
+        }
+
+        .faq-answer a {
+            color: #7f562f;
+            text-decoration: none;
+            font-weight: 470;
+            border-bottom: 1px dotted #b4845a;
+            transition: border-bottom 0.15s;
+        }
+
+        .faq-answer a:hover {
+            border-bottom: 1px solid #7f562f;
+        }
+
+        /* -------- 底部提示 -------- */
+        .footer-note {
+            text-align: center;
+            margin-top: 1.8rem;
+            padding: 1rem 0.5rem;
+            color: #5d4a38;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(160, 115, 75, 0.15);
+            opacity: 0.8;
+        }
+
+        /* -------- 响应式 -------- */
+        @media (max-width: 800px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .scenes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero-desc {
+                padding: 1.2rem 1.2rem;
+                font-size: 1rem;
+            }
+            .scenes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .faq-block {
+                padding: 1.5rem 1.2rem;
+            }
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 0.5rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <span class="logo">✦ hth</span>
+        <div class="nav-links">
+            <a href="#guide">简明指引</a>
+            <a href="#scenes">常用场景</a>
+            <a href="#faq">常见疑问</a>
+        </div>
+    </nav>
+
+    <!-- hero 介绍 + 简明的访问提醒 -->
+    <div class="hero">
+        <h1>
+            华体会
+            <small>一份生活化的访问备忘</small>
+        </h1>
+        <div class="hero-desc">
+            <p>平时打开网页，偶尔会遇到页面加载慢、链接失效或者需要切换网络环境的情况。如果你正在寻找<span style="font-weight: 500; color: #4f3724;">华体会</span>相关的信息，下面几段内容或许能帮你省一些时间。</p>
+            <p>在收藏或分享时，不妨记住主站链接：<a href="https://deta-hth.com.cn" style="color: #7f562f; text-decoration: underline; text-underline-offset: 4px; font-weight: 500;">华体会</a>。很多时候，直接输入比搜索更快。</p>
+        </div>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes-grid" id="scenes">
+        <div class="scene-card">
+            <h3>📱 快速查信息</h3>
+            <p>在手机上打开页面，如果内容没有立即显示，可以先刷新一次。网络波动时，稍等几秒就好。平时可以把<span style="font-weight: 500;">华体会</span>加入手机浏览器书签，方便随时快速定位。</p>
+            <span class="tag">日常使用</span>
+        </div>
+        <div class="scene-card">
+            <h3>🖥️ 电脑端浏览</h3>
+            <p>使用电脑浏览器时，建议关闭不必要的插件或广告拦截工具，偶尔会影响页面布局。遇到显示异常，可尝试清除缓存再试。</p>
+            <span class="tag">稳定访问</span>
+        </div>
+        <div class="scene-card">
+            <h3>🌐 网络变化场景</h3>
+            <p>如果你处于公共网络、公司内网或特定区域，访问某些站点可能会有延迟。试试切换移动数据或更改 DNS，通常能改善连接。</p>
+            <span class="tag">灵活应对</span>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ摘要) 并自然嵌入链接 -->
+    <div class="faq-block" id="faq">
+        <h2>⚡ 几个经常碰到的问题</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">「打开页面只显示白屏或部分内容」</div>
+            <div class="faq-answer">最常见的原因是浏览器缓存过旧，或者网络环境临时受限。建议先刷新页面，无效时清除该站点缓存。另外，你可以直接使用 <a href="https://deta-hth.com.cn">华体会</a> 链接进入，绕过搜索结果的旧缓存。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">「链接点不动，或者跳转奇怪」</div>
+            <div class="faq-answer">可能是第三方快捷方式失效，最好从主站进入。认准 <a href="https://deta-hth.com.cn">华体会</a> 的地址，不要依赖非官方的短链接或转发页面。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">「在海外或非大陆网络环境」</div>
+            <div class="faq-answer">部分服务可能有地域延迟或解析问题，可以尝试更换公共 DNS（如 1.1.1.1 或 8.8.8.8）。如果你需要一直稳定访问，建议把 <a href="https://deta-hth.com.cn">华体会</a> 加入路由器的自定义 hosts 试试看。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">「页面提示证书或安全警告」</div>
+            <div class="faq-answer">先确认系统时间是否正确。如果日期正常，可以尝试用隐私模式打开。若仍提示，可以截图反馈给技术支持。日常保存书签时，直接保存 <a href="https://deta-hth.com.cn">华体会</a> 这个链接最保险。</div>
+        </div>
+    </div>
+
+    <!-- 轻量底部 -->
+    <div class="footer-note">
+        ◇ 保持简单，保持连接 · 如有变化以实际页面为准
+    </div>
+</div>
+</body>
+</html>
